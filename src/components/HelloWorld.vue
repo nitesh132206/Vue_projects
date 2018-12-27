@@ -5,13 +5,13 @@
 
       <h1 class="my-2">Quotes Added</h1>
       <div class="my-2 bg-secondary">
-        <div class="bar bg-info mb-5 d-block p-1" :style="{width:bar*10+'%'}" ><b class="ml-5">{{bar}}/10</b></div>
+        <div class="bar bg-info mb-5 d-block p-1" :style="{width:msg.length*10+'%'}" ><b class="ml-5">{{msg.length}}/10</b></div>
       </div>
-      <form action="">
+      <form>
         <div class="form-group">
           <label class="form h1">Quote</label>
           <textarea id="quote_id" placeholder="enter your quote here .... " class="form-control"></textarea>
-          <a href="" class="btn btn-danger my-2" :click="addquote">Add Quote</a>
+          <a href="" class="btn btn-danger my-2" @click="addquote">Add Quote</a>
         </div>
       </form>
 
@@ -23,17 +23,24 @@
   export default {
     name: 'HelloWorld',
     props: {
-      msg: String
+      msg: Array
     },
     data:function(){
       return{
-        bar:1,
-        quotes:["first quote"]
+        //bar:1,
+        //quotes:["first quote"]
       }
     },
     methods:{
       addquote:function(){
-        quotes.push($("#quote_id").val())
+        //quotes.shift($("#quote_id").val())
+        var new_quote;
+        new_quote=document.getElementById("quote_id").value;
+        this.msg.push(new_quote)
+
+        
+        // alert(this.msg.length)
+        //alert($("#quote_id").val())
       }
 
     }
