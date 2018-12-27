@@ -11,7 +11,7 @@
         <div class="form-group">
           <label class="form h1">Quote</label>
           <textarea id="quote_id" placeholder="enter your quote here .... " class="form-control"></textarea>
-          <a href="" class="btn btn-danger my-2" @click="addquote">Add Quote</a>
+          <a href="" class="btn btn-danger my-2" @click="passquote">Add Quote</a>
         </div>
       </form>
 
@@ -25,19 +25,10 @@
     props: {
       msg: Array
     },
-    data:function(){
-      return{
-        //bar:1,
-        //quotes:["first quote"]
-      }
-    },
     methods:{
-      addquote:function(){
+      passquote:function(){
         //quotes.shift($("#quote_id").val())
-        var new_quote;
-        new_quote=document.getElementById("quote_id").value;
-        this.msg.push(new_quote)
-
+        this.$emit('add_quote',document.getElementById("quote_id").value)
         
         // alert(this.msg.length)
         //alert($("#quote_id").val())

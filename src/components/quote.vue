@@ -2,8 +2,8 @@
 	<section class="container">
 		
 		<div class="m-1 d-flex">
-			<div class="quote_container col-3 m-2" v-for="items in msg" >
-				<p>{{items}}
+			<div class="quote_container col-3 m-2" v-for="item in msg1" >
+				<p>{{item}}
 				</p>
 			</div>
 		</div>
@@ -13,7 +13,7 @@
 <script type="text/javascript">
 	export default {
 		props:{
-			msg:Array
+			msg1:Array
 		}
 		
 	}
