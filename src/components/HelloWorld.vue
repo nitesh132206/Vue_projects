@@ -11,7 +11,8 @@
         <div class="form-group">
           <label class="form h1">Quote</label>
           <textarea id="quote_id" placeholder="enter your quote here .... " class="form-control"></textarea>
-          <a href="" class="btn btn-danger my-2" @click="addquote">Add Quote</a>
+          <a href="" class="btn btn-danger my-2" @click.prevent="addquote">Add Quote</a>
+
         </div>
       </form>
 
@@ -34,9 +35,15 @@
     methods:{
       addquote:function(){
         //quotes.shift($("#quote_id").val())
+        if(this.msg.length<10)
+        {
         var new_quote;
         new_quote=document.getElementById("quote_id").value;
         this.msg.push(new_quote)
+      }
+      else{
+        alert("Please delete some quotes to add new ones");
+      }
 
         
         // alert(this.msg.length)
